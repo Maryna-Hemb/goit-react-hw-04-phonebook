@@ -36,11 +36,13 @@ export const App = () => {
       return;
     }
 
-    setContacts([...contacts, newContactValues]);
+    setContacts(prevState => [...prevState, newContactValues]);
   };
 
   const deleteContact = contactId => {
-    setContacts(contacts.filter(contact => contact.id !== contactId));
+    setContacts(prevState =>
+      prevState.filter(contact => contact.id !== contactId)
+    );
   };
 
   const changeFilter = event => {
